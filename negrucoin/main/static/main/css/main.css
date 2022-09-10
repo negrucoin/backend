@@ -1,0 +1,43 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+body {
+  background-color: #f2f4f9;
+  margin: 0px;
+  padding: 0px;
+  font-family: 'Roboto', sans-serif;
+}
+body.lock {
+    overflow: hidden;
+}
+
+img {
+    object-fit: cover;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.container {
+    max-width: 1180px;
+    margin: 0 auto;
+}
+
+.description{
+  color: #848484;
+  display: block;
+  margin-bottom: 10px;
+}
+input[type="text"] {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+.basic_button {
+    padding: 5px;
+    color: #fff;
+    text-decoration: none;
+    margin: 5px;
+    border-radius: 5px;
+    border: 1px solid #fff;
+    transition: all .25s ease-in;
+}
