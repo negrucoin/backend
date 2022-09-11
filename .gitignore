@@ -3,3 +3,4 @@
 *.pyc
 config/.env
 *.sqlite3
+negrucoin/static/

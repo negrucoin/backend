@@ -10,6 +10,6 @@ jobs:
         python-version: ["3.9"]
     steps:
     - uses: actions/checkout@v3
-    - run: dump-env -t config/.env.template > config/.env
+    - run: cp config/.env.template config/.env
     - run: docker-compose -f docker-compose.ci.yml run web sh ./docker/ci.sh
     - run: docker-compose -f docker-compose.ci.yml down --volumes
