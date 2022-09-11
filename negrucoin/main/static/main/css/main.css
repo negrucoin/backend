@@ -41,3 +41,6 @@ input[type="text"] {
     border: 1px solid #fff;
     transition: all .25s ease-in;
 }
+.logo_img {
+    width: min(350px, 80%);
+}

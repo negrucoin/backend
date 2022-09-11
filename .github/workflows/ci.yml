@@ -10,17 +10,6 @@ jobs:
         python-version: ["3.9"]
     steps:
     - uses: actions/checkout@v3
-    - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v3
-      with:
-        python-version: ${{ matrix.python-version }}
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install -r requirements.txt
-    - name: Analysing the code with pylint
-      run: |
-        pylint negrucoin
-    - name: Run tests
-      run: |
-        pytest negrucoin
+    - run: dump-env -t config/.env.template > config/.env
+    - run: docker-compose -f docker-compose.ci.yml run web sh ./docker/ci.sh
+    - run: docker-compose -f docker-compose.ci.yml down --volumes

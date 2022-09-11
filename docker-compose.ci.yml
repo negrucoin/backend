@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+  web:
+    build:
+      context: $GITHUB_WORKSPACE
+      dockerfile: $GITHUB_WORKSPACE/docker/django/Dockerfile
+      args:
+        ENVIRONMENT: test
+    env_file: $GITHUB_WORKSPACE/config/.env
+    volumes:
+      - $GITHUB_WORKSPACE/negrucoin/static:/django_static
+    command: python $GITHUB_WORKSPACE/manage.py runserver
+    depends_on:
+      - db
+  db:
+    image: postgres:13.0-alpine
+    env_file: $GITHUB_WORKSPACE/config/.env
+
+volumes:
+  postgres_data:
