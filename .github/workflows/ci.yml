@@ -11,5 +11,5 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - run: cp config/.env.template config/.env
-    - run: docker-compose -f docker-compose.ci.yml run web sh ./docker/ci.sh
+    - run: docker-compose -f docker-compose.ci.yml run web sh /docker/ci.sh
     - run: docker-compose -f docker-compose.ci.yml down --volumes
