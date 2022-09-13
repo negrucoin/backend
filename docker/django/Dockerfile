@@ -14,15 +14,16 @@ RUN apk --no-cache add \
 RUN curl -O https://raw.githubusercontent.com/vishnubob/wait-for-it/81b1373f17855a4dc21156cfe1694c31d7d1792e/wait-for-it.sh \
     && chmod +x /wait-for-it.sh
 
-WORKDIR /code
+WORKDIR /negrucoin
 
-COPY requirements.txt /code/
+COPY requirements.txt /negrucoin/
+COPY .pylintrc /negrucoin/
 
 RUN python -m pip install --upgrade pip
 RUN python -m pip install -r requirements.txt
 
 COPY docker /docker
-COPY negrucoin /code
+COPY negrucoin /negrucoin
 
 RUN mkdir /django_static
 RUN chmod -R +x /docker/django/

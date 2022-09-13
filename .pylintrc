@@ -1,5 +1,5 @@
 [MASTER]
-init-hook='import sys; sys.path.insert(0, "negrucoin")'
+init-hook='import sys; sys.path.insert(0, "/negrucoin")'
 
 [MESSAGES CONTROL]
 disable=raw-checker-failed,
