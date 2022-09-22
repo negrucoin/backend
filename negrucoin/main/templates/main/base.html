@@ -15,7 +15,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/84f2b3abf2.js" crossorigin="anonymous"></script>
     <script src="{% static 'main/js/burger.js' %}"></script>
-    <title>{% block title %}{% endblock %}</title>
+    <title>{% block title %}{% endblock %} - Negrucoin</title>
 </head>
 <body>
     <div class="header">
@@ -28,7 +28,7 @@
                     <span></span>
                 </div>
                 <a href="{% url 'index' %}" class="header__logo__mobile">
-                    <img src="{% static 'main/logo.png' %}" alt="">
+                    <img src="{% static 'main/new_logo.png' %}" alt="">
                 </a>
                 <nav class="header__menu">
                     <ul class="header__list">
@@ -51,8 +51,8 @@
                     {% if request.user.is_authenticated %}
                         <div class="user_button"><i class="fa-solid fa-user"></i></div>
                     {% else %}
-                        <a href="#" class="basic_button">Войти</a>
-                        <a href="#" class="basic_button">Зарегистрироваться</a>
+                        <a href="{% url 'login' %}" class="basic_button">Войти</a>
+                        <a href="{% url 'sign-in' %}" class="basic_button">Зарегистрироваться</a>
                     {% endif %}
                 </div>
 
@@ -66,7 +66,7 @@
                                 <a href="#" class="user__link">Уведомления</a>
                             </li>
                             <li style="margin-top: 5vh;">
-                                <a href="#" class="user__link logout_button">
+                                <a href="{% url 'logout' %}" class="user__link logout_button">
                                     Выйти <i class="fa-solid fa-arrow-right-from-bracket"></i>
                                 </a>
                             </li>

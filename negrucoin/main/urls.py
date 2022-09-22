@@ -15,10 +15,14 @@ Including another URLconf
 """
 from django.conf import settings
 from django.conf.urls.static import static
+from django.contrib.auth.views import LogoutView
 from django.urls import path
 
-from main.views import IndexView
+from main.views import IndexView, RegistrationView, LoginView
 
 urlpatterns = [
     path('', IndexView.as_view(), name='index'),
+    path('login/', LoginView.as_view(), name='login'),
+    path('sign-in/', RegistrationView.as_view(), name='sign-in'),
+    path('logout/', LogoutView.as_view(next_page='/'), name='logout'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

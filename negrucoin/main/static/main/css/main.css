@@ -44,3 +44,101 @@ input[type="text"] {
 .logo_img {
     width: min(350px, 80%);
 }
+.auth_form {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #fff;
+    border-radius: 15px;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+.auth_form__field {
+    width: 100%;
+    padding: 10px;
+}
+.field__title {
+    text-align: left;
+    font-weight: bold;
+}
+.field__title:after {
+    content: ":";
+}
+.field__input {
+    width: 100%;
+}
+.field__input input {
+    width: 100%;
+    padding: 5px;
+    margin-top: 5px;
+    height: 40px;
+}
+.auth_form__submit {
+    width: 100%;
+    text-align: center;
+    margin: 10px 10px;
+}
+.auth_form__submit button {
+    width: 100%;
+    border: 0;
+    background-color: rgb(98 58 151 / 62%);
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.1em;
+    border-radius: 3px;
+    padding: 8px 0;
+}
+.auth_form__help {
+    width: 100%;
+    margin-top: 15px;
+}
+.auth_form__help a {
+    text-decoration: none;
+}
+.auth_form__error {
+    background-color: rgb(255 0 0 / 45%);
+    padding: 10px;
+    width: 100%;
+    margin: 10px;
+    text-align: left;
+    color: #fff;
+    border-radius: 3px;
+    font-weight: bold;
+}
+
+.auth_form__error:before {
+    display: inline-block;
+    content: "";
+    width: 5px;
+    height: 5px;
+    background-color: #ffffff;
+    margin: 3px 5px;
+    border-radius: 50%;
+}
+
+.field__error {
+    background-color: rgb(255 0 0 / 45%);
+    color: #fff;
+    padding: 3px;
+    text-align: left;
+}
+.field__error ul {
+    margin: 0;
+}
+.row {
+    margin-bottom: 300px;
+    margin-top: 180px;
+}
+
+@media (max-width: 768px) {
+    .row {
+        margin-top: 100px;
+    }
+}
+@media (min-width: 769px) {
+    .row {
+        margin-top: 140px;
+    }
+}
+@media (min-width: 993px) {
+}

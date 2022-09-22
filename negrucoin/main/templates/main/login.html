@@ -1,0 +1,43 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Авторизация{% endblock %}
+
+{% block body %}
+  <div class="row">
+    <h3 class="text-center">Авторизация</h3>
+    <hr>
+    <form class="auth_form" action="" method="POST">
+      {% csrf_token %}
+
+      {% for error in form.non_field_errors %}
+        <div class="auth_form__error">
+          {{ error }}
+        </div>
+      {% endfor %}
+
+      <div class="auth_form__field">
+        <div class="field__title">{{ form.username.label }}</div>
+        {% if form.username.errors %}
+          <div class="field__error">{{ form.username.errors }}</div>
+        {% endif %}
+        <div class="field__input">{{ form.username }}</div>
+      </div>
+
+      <div class="auth_form__field">
+        <div class="field__title">{{ form.password.label }}</div>
+        {% if form.password.errors %}
+          <div class="field__error">{{ form.password.errors }}</div>
+        {% endif %}
+        <div class="field__input">{{ form.password }}</div>
+      </div>
+
+      <div class="auth_form__submit">
+        <button type="submit" class="btn btn-success">Войти</button>
+      </div>
+
+      <div class="auth_form__help">
+        Еще нет аккаунта? <a href="{% url 'sign-in' %}?next={{ next }}">Зарегистрироваться</a>
+      </div>
+    </form>
+  </div>
+{% endblock %}

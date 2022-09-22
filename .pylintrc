@@ -1,4 +1,6 @@
 [MASTER]
+ignore=tests,
+       migrations
 init-hook='import sys; sys.path.insert(0, "/negrucoin")'
 
 [MESSAGES CONTROL]
@@ -10,4 +12,6 @@ disable=raw-checker-failed,
         useless-suppression,
         deprecated-pragma,
         use-symbolic-message-instead,
-        missing-module-docstring
+        missing-module-docstring,
+        import-error,
+        no-name-in-module
