@@ -20,7 +20,7 @@ class LoginView(View):
     def get(self, request) -> HttpResponse:
         """Get rendered form LoginForm."""
         next_page = request.GET.get('next', '/')
-        form = LoginForm(request.POST)
+        form = LoginForm(request.POST or None)
         context = {
             'form': form,
             'next': next_page
@@ -53,7 +53,7 @@ class RegistrationView(View):
     def get(self, request) -> HttpResponse:
         """Get rendered form."""
         next_page = request.GET.get('next', '/')
-        form = RegistrationForm(request.POST)
+        form = RegistrationForm(request.POST or None)
         context = {
             'form': form,
             'next': next_page

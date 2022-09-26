@@ -9,23 +9,25 @@ def api_client():
     return APIClient()
 
 
+@pytest.mark.django_db
 def test_registration_request_is_success(api_client):
     response = api_client.post(
         reverse('sign-in'),
         {
-            'nickname': 'Job',
+            'username': 'Job',
             'password': 'myBESTpassword123',
             'confirm_password': 'myBESTpassword123',
         }
     )
-    assert response.status_code == 200
+    assert response.status_code == 302  # redirect to main page
 
 
+@pytest.mark.django_db
 def test_registration_request_small_password(api_client):
     response = api_client.post(
         reverse('sign-in'),
         {
-            'nickname': 'fell_good',
+            'username': 'fell_good',
             'password': 'sMa3lp',
             'confirm_password': 'sMa3lp',
         }
@@ -33,11 +35,12 @@ def test_registration_request_small_password(api_client):
     assert response.status_code == 401
 
 
+@pytest.mark.django_db
 def test_registration_request_without_nums(api_client):
     response = api_client.post(
         reverse('sign-in'),
         {
-            'nickname': 'petri',
+            'username': 'petri',
             'password': 'ONEtrueThink',
             'confirm_password': 'ONEtrueThink',
         }
@@ -45,11 +48,12 @@ def test_registration_request_without_nums(api_client):
     assert response.status_code == 401
 
 
+@pytest.mark.django_db
 def test_registration_request_without_uppercase_letters(api_client):
     response = api_client.post(
         reverse('sign-in'),
         {
-            'nickname': 'lolXD',
+            'username': 'lolXD',
             'password': 'moo123its123cow',
             'confirm_password': 'moo123its123cow',
         }

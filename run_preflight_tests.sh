@@ -1,5 +1,5 @@
 function run(){
-  sudo docker-compose -f docker-compose.preflight.yml "$@"
+  docker-compose -f docker-compose.preflight.yml "$@"
 }
 set -e
 run build web
