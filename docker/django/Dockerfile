@@ -3,7 +3,8 @@ FROM python:3.9-alpine3.12
 ARG ENVIRONMENT
 ENV ENVIRONMENT=$ENVIRONMENT
 
-RUN apk --no-cache add \
+# Add --no-cache param if something will broke
+RUN apk add \
     bash \
     postgresql-dev \
     python3-dev \

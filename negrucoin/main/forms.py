@@ -2,7 +2,7 @@ from django import forms
 
 from django.contrib.auth import get_user_model
 
-from negrucoin.settings import MIN_PASSWORD_LENGTH, MAX_PASSWORD_LENGTH
+from settings import MIN_PASSWORD_LENGTH, MAX_PASSWORD_LENGTH
 
 User = get_user_model()
 
