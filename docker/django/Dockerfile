@@ -25,6 +25,10 @@ RUN pip install poetry
 RUN poetry config virtualenvs.create false \
   && poetry install $(test "$ENVIRONMENT" == production && echo "--no-dev") --no-interaction --no-ansi
 
+# Some dev stuff
+COPY tests /negrucoin/tests
+COPY sql /negrucoin/sql
+
 COPY docker /docker
 COPY negrucoin /negrucoin
 

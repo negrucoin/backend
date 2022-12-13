@@ -34,6 +34,7 @@ INSTALLED_APPS = [
 
     # our apps
     'main',
+    'payment',
 ]
 
 MIDDLEWARE = [

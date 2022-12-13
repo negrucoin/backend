@@ -10,7 +10,10 @@ services:
     env_file: $GITHUB_WORKSPACE/config/.env
     volumes:
       - $GITHUB_WORKSPACE/negrucoin/static:/django_static
-    command: python $GITHUB_WORKSPACE/manage.py runserver
+    command: [
+      "/wait-for-it.sh", "db:5432", "--strict", "--timeout=300", "--",
+      "/docker/django/start_server.sh"
+    ]
     depends_on:
       - db
   db:
