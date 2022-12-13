@@ -15,6 +15,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/84f2b3abf2.js" crossorigin="anonymous"></script>
     <script src="{% static 'main/js/burger.js' %}"></script>
+    <script src="{% static 'main/js/update_money.js' %}"></script>
     <title>{% block title %}{% endblock %} - Negrucoin</title>
 </head>
 <body>
@@ -49,6 +50,7 @@
 
                 <div class="header__login">
                     {% if request.user.is_authenticated %}
+                        <div class="user__money">{{ request.user.client.calculate_money }}</div>
                         <div class="user_button"><i class="fa-solid fa-user"></i></div>
                     {% else %}
                         <a href="{% url 'login' %}" class="basic_button">Войти</a>

@@ -1,12 +1,22 @@
 import pytest
+from django.contrib.auth import get_user_model
 from django.urls import reverse
 
 from rest_framework.test import APIClient
 
+User = get_user_model()
+
 
 @pytest.fixture()
-def api_client():
-    return APIClient()
+def user() -> User:
+    return User.objects.get(pk=1)
+
+
+@pytest.fixture()
+def api_client(user):
+    api_client = APIClient()
+    api_client.force_authenticate(user=user)
+    return api_client
 
 
 @pytest.mark.django_db
@@ -59,3 +69,22 @@ def test_registration_request_without_uppercase_letters(api_client):
         }
     )
     assert response.status_code == 401
+
+
+@pytest.mark.django_db
+def test_get_money_count(api_client, user):
+    response = api_client.get(
+        reverse('money-count')
+    )
+    assert response.status_code == 200
+    assert isinstance(response.data, dict)
+    assert 'money' in response.data
+
+
+@pytest.mark.django_db
+def test_get_money_count_with_unauthorized_user(api_client, user):
+    api_client.logout()
+    response = api_client.get(
+        reverse('money-count')
+    )
+    assert response.status_code == 403

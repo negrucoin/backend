@@ -3,7 +3,13 @@ from django.conf import settings
 from django.core.management import call_command
 from django.db import connections
 
+from main.models import Client
 from sql.utils import restore_database, drop_database, get_connection_params, create_database
+
+
+@pytest.fixture()
+def client() -> Client:
+    return Client.objects.get(pk=1)
 
 
 @pytest.fixture(scope='session')

@@ -6,13 +6,8 @@ import pytest
 import pytz
 from django.utils import timezone
 
-from main.models import Client, MoneySaleOffer
+from main.models import MoneySaleOffer
 from settings import MONEY_PER_MINUTE, TIME_ZONE
-
-
-@pytest.fixture()
-def client() -> Client:
-    return Client.objects.get(pk=1)
 
 
 @pytest.mark.django_db
