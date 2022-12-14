@@ -1,7 +1,7 @@
 
 function update_money() {
     $.ajax({
-        url: 'api/get-money-count',
+        url: '/api/get-money-count',
         method: 'get',
         dataType: 'json',
         success: function(data){
