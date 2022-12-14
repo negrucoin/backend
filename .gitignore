@@ -4,3 +4,5 @@
 config/.env
 *.sqlite3
 negrucoin/static/
+docker/nginx/negru.key
+docker/nginx/negru.pem
