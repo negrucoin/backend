@@ -16,7 +16,7 @@ ENVIRONMENT = os.environ['ENVIRONMENT']
 DEBUG = ENVIRONMENT != 'production'
 
 ALLOWED_HOSTS = os.environ['DJANGO_ALLOWED_HOSTS'].split(' ')
-
+CSRF_TRUSTED_ORIGINS = ['https://negrucoin.ru']
 
 # Application definition
 
