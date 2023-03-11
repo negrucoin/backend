@@ -1,11 +1,17 @@
 #!/usr/bin/env python
-"""Django's command-line utility for administrative tasks."""
 import os
 import sys
+from pathlib import Path
+
+from dotenv import load_dotenv
+
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 def main():
     """Run administrative tasks."""
+    load_dotenv(BASE_DIR / 'config/.env')
+    os.environ.setdefault('ENVIRONMENT', 'dev')
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'settings')
     try:
         # pylint: disable=import-outside-toplevel

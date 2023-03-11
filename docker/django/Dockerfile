@@ -1,19 +1,22 @@
-FROM python:3.9-alpine3.12
+FROM python:3.10-alpine
 
 ARG ENVIRONMENT
-ENV ENVIRONMENT=$ENVIRONMENT
+ENV ENVIRONMENT=$ENVIRONMENT \
+    PYTHONDOWNWRITEBYTECODE=1
 
-# Add --no-cache param if something will broke
+#RUN apk add \
+#    bash \
+#    postgresql-dev \
+#    python3-dev \
+#    gcc \
+#    curl \
+#    build-base \
+#    && python -m pip install --upgrade pip
 RUN apk add \
     bash \
-    postgresql-dev \
-    python3-dev \
-    gcc \
-    curl \
-    build-base \
     && python -m pip install --upgrade pip
 
-RUN curl -O https://raw.githubusercontent.com/vishnubob/wait-for-it/81b1373f17855a4dc21156cfe1694c31d7d1792e/wait-for-it.sh \
+RUN wget https://raw.githubusercontent.com/vishnubob/wait-for-it/81b1373f17855a4dc21156cfe1694c31d7d1792e/wait-for-it.sh \
     && chmod +x /wait-for-it.sh
 
 WORKDIR /negrucoin

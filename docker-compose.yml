@@ -1,4 +1,4 @@
-version: "3"
+version: "3.7"
 
 services:
   nginx:
@@ -10,8 +10,8 @@ services:
       - ./docker/nginx/negru.pem:/etc/nginx/ssl/negru.pem
       - ./docker/nginx/negru.key:/etc/nginx/ssl/negru.key
     ports:
-      - 80:80
-      - 443:443
+      - "80:80"
+      - "443:443"
     depends_on:
       - web
   web:
@@ -23,8 +23,6 @@ services:
     env_file: ./config/.env
     volumes:
       - ./negrucoin/static:/django_static
-    expose:
-      - 8000
     command: [
       "/wait-for-it.sh", "db:5432", "--strict", "--timeout=300", "--",
       "/docker/django/start_server.sh"
@@ -33,6 +31,7 @@ services:
       - db
   db:
     image: postgres:13.0-alpine
+    restart: unless-stopped
     volumes:
       - postgres_data:/var/lib/postgresql/data/
     env_file: ./config/.env

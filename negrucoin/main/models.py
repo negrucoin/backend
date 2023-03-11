@@ -33,6 +33,8 @@ class Client(models.Model):
         from the moment the client registers. And take into account the user's expenses.
         """
 
+        # TODO: Move this stuff into UsersService ?
+
         now = timezone.now()
 
         # Wooow, client travels back in time!
