@@ -7,7 +7,7 @@
 ## Технологии
 
 - **Backend:** Django + Django REST Framework
-- **База данных:** PostgreSQL (SQLite для разработки)
+- **База данных:** PostgreSQL
 - **Frontend:** Django шаблоны + CSS/JS
 - **DevOps:** Docker, Nginx, SSL
 - **Тестирование:** pytest
