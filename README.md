@@ -8,7 +8,7 @@
 
 - **Backend:** Django + Django REST Framework
 - **База данных:** PostgreSQL
-- **Frontend:** Django шаблоны + CSS/JS
+- **Frontend:** Отдельный репозиторий с Vue.js приложением, тут минимальный фронт - Django шаблоны + CSS/JS
 - **DevOps:** Docker, Nginx, SSL
 - **Тестирование:** pytest
 
